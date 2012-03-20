@@ -18,9 +18,9 @@ class Capybara::Driver::Selenium < Capybara::Driver::Base
 
     def value
       if tag_name == "select" and self[:multiple] and not self[:multiple] == "false"
-        native.find_elements(:xpath, ".//option").select { |n| n.selected? }.map { |n| n.value || n.text }
+        native.find_elements(:xpath, ".//option").select { |n| n.selected? }.map { |n| n[:value] || n.text }
       else
-        native.value
+        native[:value]
       end
     end
 
@@ -36,7 +36,7 @@ class Capybara::Driver::Selenium < Capybara::Driver::Base
     end
 
     def select_option
-      native.select
+      native.click if not selected?
     end
 
     def unselect_option

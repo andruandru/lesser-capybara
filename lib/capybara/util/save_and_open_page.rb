@@ -1,5 +1,23 @@
 module Capybara
   class << self
+
+    def save_page(html, file_name=nil, save_to=nil)
+      file_name ||= "capybara-#{Time.new.strftime("y%Ym%md%dh%Hm%Ms%S")}#{rand(10**10)}.html"
+      save_to ||= Capybara.save_and_open_page_path
+
+      name = File.join(*[save_to, file_name].compact)
+
+      unless save_to.nil? || File.directory?( save_to )
+        FileUtils.mkdir_p(save_to)
+      end
+      FileUtils.touch(name) unless File.exist?(name)
+
+      tempfile = File.new(name,'w')
+      tempfile.write(rewrite_css_and_image_references(html))
+      tempfile.close
+      tempfile.path
+    end
+
     def save_and_open_page(html)
       name = File.join(*[Capybara.save_and_open_page_path, "capybara-#{Time.new.strftime("%Y%m%d%H%M%S")}.html"].compact)
 

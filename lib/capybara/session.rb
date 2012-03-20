@@ -256,6 +256,15 @@ module Capybara
       Capybara.save_and_open_page(body)
     end
 
+    ##
+    #
+    # Save a snapshot of the page in /tmp folder
+    #
+    def save_page_in_tmp
+      require 'capybara/util/save_and_open_page'
+      Capybara.save_page body, nil, '/tmp'
+    end
+
     def document
       Capybara::Node::Document.new(self, driver)
     end
