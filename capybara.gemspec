@@ -5,18 +5,15 @@ $:.unshift lib unless $:.include?(lib)
 require 'capybara/version'
 
 Gem::Specification.new do |s|
-  s.name = "capybara"
-  s.rubyforge_project = "capybara"
+  s.name = "lesser-capybara"
   s.version = Capybara::VERSION
 
-  s.authors = ["Jonas Nicklas"]
-  s.email = ["jonas.nicklas@gmail.com"]
-  s.description = "Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website"
+  s.description = "Lesser Capybara is a 0.4.1.2 version of Capybara (http://github.com/jnicklas/capybara) fitted for Selenium-WebDriver 2.x"
 
   s.files = Dir.glob("{lib,spec}/**/*") + %w(README.rdoc History.txt)
   s.extra_rdoc_files = ["README.rdoc"]
 
-  s.homepage = "http://github.com/jnicklas/capybara"
+  s.homepage = "http://github.com/andrewfs/lesser-capybara"
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.3.6"
