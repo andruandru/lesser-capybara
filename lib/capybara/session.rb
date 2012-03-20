@@ -262,7 +262,7 @@ module Capybara
     #
     def save_page_in_tmp
       require 'capybara/util/save_and_open_page'
-      Capybara.save_page body, nil, '/tmp'
+      Capybara.save_page body, nil, '/tmp/capybara'
     end
 
     def document
