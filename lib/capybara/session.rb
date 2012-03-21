@@ -258,11 +258,11 @@ module Capybara
 
     ##
     #
-    # Save a snapshot of the page in /tmp folder
+    # Save a snapshot of the page
     #
-    def save_page_in_tmp
+    def save_page folder_path=nil
       require 'capybara/util/save_and_open_page'
-      Capybara.save_page body, nil, '/tmp/capybara'
+      Capybara.save_page body, nil, folder_path
     end
 
     def document
