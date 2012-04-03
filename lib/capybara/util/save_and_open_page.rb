@@ -26,7 +26,12 @@ module Capybara
 
     def open_in_browser(path) # :nodoc
       require "launchy"
-      Launchy::Browser.run(path)
+      if Launchy::Version::MAJOR >= 2
+        Launchy.open(path)  
+      else
+        Launchy::Browser.run(path)  
+      end
+            
     rescue LoadError
       warn "Sorry, you need to install launchy (`gem install launchy`) and " <<
         "make sure it's available to open pages with `save_and_open_page`."
