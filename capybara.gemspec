@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'capybara/version'
 
 Gem::Specification.new do |s|
-  s.name = "lesser-capybara"
+  s.name = "capybara"
   s.version = Capybara::VERSION
 
   s.description = "Lesser Capybara is a 0.4.1.2 version of Capybara (http://github.com/jnicklas/capybara) fitted for Selenium-WebDriver 2.x"
