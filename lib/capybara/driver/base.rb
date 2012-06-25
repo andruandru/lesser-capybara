@@ -7,6 +7,10 @@ class Capybara::Driver::Base
     raise NotImplementedError
   end
 
+  def refresh
+    raise NotImplementedError
+  end
+
   def find(query)
     raise NotImplementedError
   end

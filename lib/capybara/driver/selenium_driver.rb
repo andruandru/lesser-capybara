@@ -112,6 +112,10 @@ class Capybara::Driver::Selenium < Capybara::Driver::Base
     browser.navigate.to(url(path))
   end
 
+  def refresh
+    browser.navigate.refresh
+  end
+
   def source
     browser.page_source
   end
