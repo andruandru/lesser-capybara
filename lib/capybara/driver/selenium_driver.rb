@@ -76,6 +76,14 @@ class Capybara::Driver::Selenium < Capybara::Driver::Base
       native.find_elements(:xpath, locator).map { |n| self.class.new(driver, n) }
     end
 
+    def trigger event
+      case event.to_s.downcase
+        when 'blur' then native.send_keys :tab
+        when 'click' then native.click
+        else raise Capybara::NotSupportedByDriverError
+      end
+    end
+
   private
 
     # a reference to the select node if this is an option node
