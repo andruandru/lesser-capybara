@@ -8,12 +8,13 @@ Gem::Specification.new do |s|
   s.name = "lesser-capybara"
   s.version = Capybara::VERSION
 
+  s.authors = ["Andy"]
   s.description = "Lesser Capybara is a 0.4.1.2 version of Capybara (http://github.com/jnicklas/capybara) fitted for Selenium-WebDriver 2.x"
 
   s.files = Dir.glob("{lib,spec}/**/*") + %w(README.rdoc History.txt)
   s.extra_rdoc_files = ["README.rdoc"]
 
-  s.homepage = "http://github.com/andrewfs/lesser-capybara"
+  s.homepage = "http://github.com/andruandru/lesser-capybara"
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.3.6"
