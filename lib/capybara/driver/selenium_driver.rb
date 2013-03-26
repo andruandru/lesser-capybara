@@ -1,4 +1,3 @@
-require 'selenium-webdriver'
 
 class Capybara::Driver::Selenium < Capybara::Driver::Base
   class Node < Capybara::Driver::Node
@@ -110,6 +109,16 @@ class Capybara::Driver::Selenium < Capybara::Driver::Base
   end
 
   def initialize(app, options={})
+    begin
+      require 'selenium-webdriver'
+    rescue LoadError => e
+      if e.message =~ /selenium-webdriver/
+        raise LoadError, "Capybara's selenium driver is unable to load `selenium-webdriver`, please install the gem and add `gem 'selenium-webdriver'` to your Gemfile if you are using bundler."
+      else
+        raise e
+      end
+    end
+
     @app = app
     @options = options
     @rack_server = Capybara::Server.new(@app)
